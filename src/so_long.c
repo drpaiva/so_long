@@ -86,8 +86,8 @@ int	main(int argc, char **argv)
 	mlx.c_count = 0;
 	mlx.e_count = 0;
 	mlx.p_count = 0;
-	mlx.c = map_getlinecol(argv[1]);
 	check_file(argc, argv, mlx.c);
+	mlx.c = map_getlinecol(argv[1]);
 	mlx.map = map_matriz(argv[1], mlx.c.line);
 	check_datafile(&mlx);
 	check_maplimit(&mlx);
