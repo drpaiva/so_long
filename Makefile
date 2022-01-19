@@ -13,7 +13,6 @@
 NAME		=	so_long
 CC			=	gcc
 FLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g
-MLX			=	mlx/Makefile.gen
 LFT			=	libft/libft.a
 GNL			=	gnl/get_next_line.a
 INC			=	-I ./inc -I ./gnl -I ./libft -I ./mlx_linux
@@ -26,9 +25,10 @@ SRC			=	src/so_long.c \
 				src/ft_lst.c\
 				src/util_draw.c\
 
-all:		$(GNL) $(MLX) $(LFT) obj $(NAME)
+all:		$(GNL) $(LFT) obj $(NAME)
 
 $(NAME):	$(OBJ)
+			$(MLX)
 			$(CC) $(FLAGS) -o $@ $^ $(GNL) $(LIB)
 
 $(MLX):
