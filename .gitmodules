@@ -3,4 +3,4 @@
 	url = https://github.com/drpaiva/libft.git
 [submodule "mlx_linux"]
 	path = mlx_linux
-	url = git@github.com:drpaiva/minilibx-linux.git
+	url = https://github.com/drpaiva/minilibx-linux.git
