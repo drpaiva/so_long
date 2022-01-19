@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 20:38:30 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/13 02:06:24 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:54:54 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,28 @@ int	ft_equal(int x, int y)
 		return (1);
 	return (0);
 }
+static int ft_open_res(char *file)
+{
+	int res;
+	char	*ext;
+	char	*str;
+
+	ext = ".ber";
+	str = ft_strrchr(file, 46);
+	if (ft_strncmp(ext, str, 4) != 0)
+	{
+		ft_putstr_fd("Error\n Input file must be of type .ber\n", 1);
+		exit(0);
+	}
+
+	res = open(file, O_RDONLY);
+	if(res < 0)
+	{
+		ft_putstr_fd("Error\n  File.ber not open!\n", 1);
+		exit(0);
+	}
+	return (res);
+}
 
 t_map	map_getlinecol(char *file)
 {
@@ -27,7 +49,7 @@ t_map	map_getlinecol(char *file)
 	x.validate = 1;
 	x.line = 0;
 	y[0] = 1;
-	y[1] = open(file, O_RDONLY);
+	y[1] = ft_open_res(file);
 	while (y[0] && (x.validate == 1))
 	{
 		y[0] = get_next_line(y[1], &x.str);
@@ -48,37 +70,26 @@ t_map	map_getlinecol(char *file)
 	return (x);
 }
 
-char	**map_matriz(char *file, int line)
+void	map_matriz(char *file, int line, t_mlx *mlx)
 {
-	char	**map;
+	// char	**map;
 	char	*str;
 	int		fd;
 	// int		out;
 	int		i;
 
 	// out = 1;
-	map = (char **)ft_calloc(line, sizeof(int *));
+	mlx->map = (char **)ft_calloc(line, sizeof(int *));
 	i = 0;
-	// while (i < line)
-	// {
-	// 	map[i] = malloc(col * sizeof(int));
-	// 	i++;
-	// }
+
 	fd = open(file, O_RDONLY);
 	i = 0;
 	while (i < line)
 	{
 		get_next_line(fd, &str);
-		map[i] = ft_strdup(str);
+		mlx->map[i] = ft_strdup(str);
 
-		// y = 0;
-		// while (y < col)
-		// {
-		// 	map[i][y] = str[y];
-		// }
 		i++;
 		free(str);
 	}
-	return (map);
-
 }

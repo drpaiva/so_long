@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 21:08:18 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/16 23:13:27 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/19 02:08:44 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 
 int	win_close(t_mlx *mlx)
 {
+	int	i;
+
 	mlx_destroy_window(mlx->instance, mlx->win);
+	i = 0;
+	while (i < mlx->c.line)
+	{
+		free(mlx->map[i]);
+		i++;
+	}
+	free(mlx->map);
+	ft_lstclear_md(&mlx->conf_img, ft_del);
+	free(mlx->instance);
 	exit(0);
 	return (0);
 }

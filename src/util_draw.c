@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:33:43 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/16 23:32:05 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/19 02:01:26 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void get_imgdraw(char c, int i, int x, t_mlx *mlx)
 		}
 		p = p->next;
 	}
-
 }
 
 void ft_put_imgind(int line, int col, t_mlx *mlx)

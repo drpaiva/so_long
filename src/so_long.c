@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:46:37 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/17 00:04:38 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/19 01:02:58 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,10 @@ int	main(int argc, char **argv)
 	mlx.c_count = 0;
 	mlx.e_count = 0;
 	mlx.p_count = 0;
-	check_file(argc, argv, mlx.c);
+	// check_file(argc, argv, mlx.c);
 	mlx.c = map_getlinecol(argv[1]);
-	mlx.map = map_matriz(argv[1], mlx.c.line);
+	check_file(argc, argv, mlx.c);
+	map_matriz(argv[1], mlx.c.line, &mlx);
 	check_datafile(&mlx);
 	check_maplimit(&mlx);
 	ft_len_c(&mlx);

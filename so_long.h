@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:50:51 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/16 23:37:35 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/19 00:52:28 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ typedef struct s_mlx
 int	win_close(t_mlx *mlx);
 int ft_equal(int x, int y);
 t_map map_getlinecol(char *file);
-char	**map_matriz(char *file, int line);
+void	map_matriz(char *file, int line, t_mlx *mlx);
 void	check_file(int argc, char **argv, t_map m);
 t_dataimg	*ft_lstnew_md(void *content, char opt);
 void	ft_lstadd_back_md(t_dataimg **lst, t_dataimg *new);

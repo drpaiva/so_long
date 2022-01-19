@@ -6,13 +6,13 @@
 #    By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/04 23:03:51 by dramos-p          #+#    #+#              #
-#    Updated: 2022/01/16 23:23:53 by dramos-p         ###   ########.fr        #
+#    Updated: 2022/01/18 22:56:00 by dramos-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 CC			=	gcc
-FLAGS		=	-Wall -Wextra -Werror -fsanitize=address -g
+FLAGS		=	-Wall -Wextra -Werror
 LFT			=	libft/libft.a
 GNL			=	gnl/get_next_line.a
 INC			=	-I ./inc -I ./gnl -I ./libft -I ./mlx_linux
