@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/08 20:50:51 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/19 21:40:15 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/20 00:51:56 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 # include <fcntl.h>
 # include <stdio.h>
 
-#  define W_KEY			119
-#  define A_KEY			97
-#  define S_KEY			115
-#  define D_KEY			100
-#  define ESC_KEY		65307
+# define W_KEY 119
+# define A_KEY 97
+# define S_KEY 115
+# define D_KEY 100
+# define ESC_KEY 65307
 
 typedef struct s_dataimg
 {
@@ -45,40 +45,40 @@ typedef struct s_map
 
 typedef struct s_mlx
 {
-	void	*instance;
-	void	*win;
-	void	*img;
-	int		x;
-	int		y;
-	int		p_line;
-	int		p_col;
-	int		c_move;
-	int		c_count;
-	int		p_count;
-	int		e_count;
-	char	*path;
+	void		*instance;
+	void		*win;
+	void		*img;
+	int			x;
+	int			y;
+	int			p_line;
+	int			p_col;
+	int			c_move;
+	int			c_count;
+	int			p_count;
+	int			e_count;
+	char		*path;
 	t_dataimg	*conf_img;
-	char	**map;
-	t_map	c;
+	char		**map;
+	t_map		c;
 }	t_mlx;
 
-int	win_close(t_mlx *mlx);
-int ft_equal(int x, int y);
-t_map map_getlinecol(char *file);
-void	map_matriz(char *file, int line, t_mlx *mlx);
-void	check_file(int argc, char **argv, t_map m);
+int			win_close(t_mlx *mlx);
+int			ft_equal(int x, int y);
+t_map		map_getlinecol(char *file);
+void		map_matriz(char *file, int line, t_mlx *mlx);
+void		check_file(int argc, char **argv, t_map m);
 t_dataimg	*ft_lstnew_md(void *content, char opt);
-void	ft_lstadd_back_md(t_dataimg **lst, t_dataimg *new);
+void		ft_lstadd_back_md(t_dataimg **lst, t_dataimg *new);
 t_dataimg	*ft_lstlast_md(t_dataimg *lst);
-void	ft_lstclear_md(t_dataimg **lst, void (*del)(void*));
-void	ft_lstdelone_md(t_dataimg *lst, void (*del)(void*));
-void 	set_conf_img(t_mlx	*mlx);
-void	draw(char **map, t_mlx	*mlx);
-void	ft_del(void *content);
-void	get_imgdraw(char c, int i, int x, t_mlx *mlx);
-void	ft_put_imgind(int line, int col, t_mlx *mlx);
-void	check_datafile(t_mlx *mlx);
-void	check_maplimit(t_mlx *mlx);
-void	check_cpe(t_mlx *mlx);
+void		ft_lstclear_md(t_dataimg **lst, void (*del)(void*));
+void		ft_lstdelone_md(t_dataimg *lst, void (*del)(void*));
+void		set_conf_img(t_mlx	*mlx);
+void		draw(char **map, t_mlx *mlx);
+void		ft_del(void *content);
+void		get_imgdraw(char c, int i, int x, t_mlx *mlx);
+void		ft_put_imgind(int line, int col, t_mlx *mlx);
+void		check_datafile(t_mlx *mlx);
+void		check_maplimit(t_mlx *mlx);
+void		check_cpe(t_mlx *mlx);
 
 #endif
