@@ -53,3 +53,5 @@ dkms.conf
 
 # Teste
 teste/
+so_long
+.gitignore
