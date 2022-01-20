@@ -6,7 +6,7 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 20:38:30 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/19 01:54:54 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/20 00:10:34 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,10 @@ int	ft_equal(int x, int y)
 		return (1);
 	return (0);
 }
-static int ft_open_res(char *file)
+
+static int	ft_open_res(char *file)
 {
-	int res;
+	int		res;
 	char	*ext;
 	char	*str;
 
@@ -31,9 +32,8 @@ static int ft_open_res(char *file)
 		ft_putstr_fd("Error\n Input file must be of type .ber\n", 1);
 		exit(0);
 	}
-
 	res = open(file, O_RDONLY);
-	if(res < 0)
+	if (res < 0)
 	{
 		ft_putstr_fd("Error\n  File.ber not open!\n", 1);
 		exit(0);
@@ -72,23 +72,17 @@ t_map	map_getlinecol(char *file)
 
 void	map_matriz(char *file, int line, t_mlx *mlx)
 {
-	// char	**map;
 	char	*str;
 	int		fd;
-	// int		out;
 	int		i;
 
-	// out = 1;
 	mlx->map = (char **)ft_calloc(line, sizeof(int *));
-	i = 0;
-
 	fd = open(file, O_RDONLY);
 	i = 0;
 	while (i < line)
 	{
 		get_next_line(fd, &str);
 		mlx->map[i] = ft_strdup(str);
-
 		i++;
 		free(str);
 	}

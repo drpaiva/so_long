@@ -6,13 +6,13 @@
 /*   By: dramos-p <dramos-p@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 23:33:43 by dramos-p          #+#    #+#             */
-/*   Updated: 2022/01/19 02:01:26 by dramos-p         ###   ########.fr       */
+/*   Updated: 2022/01/20 00:07:41 by dramos-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void check_cpe(t_mlx *mlx)
+void	check_cpe(t_mlx *mlx)
 {
 	if (mlx->c_count < 1)
 	{
@@ -31,33 +31,42 @@ void check_cpe(t_mlx *mlx)
 	}	
 }
 
-void get_imgdraw(char c, int i, int x, t_mlx *mlx)
+void	get_imgdraw(char c, int i, int x, t_mlx *mlx)
 {
 	t_dataimg	*p;
+	void		*s;
 
+	s = mlx->instance;
 	p = mlx->conf_img;
-
 	while (p != NULL)
 	{
 		if ((p->opt) == c)
 		{
-			mlx->img = mlx_xpm_file_to_image(mlx->instance, p->content, &mlx->x, &mlx->y);
-			mlx_put_image_to_window(mlx->instance, mlx->win, mlx->img, x , i);
+			mlx->img = mlx_xpm_file_to_image(s, p->content, &mlx->x, &mlx->y);
+			mlx_put_image_to_window(mlx->instance, mlx->win, mlx->img, x, i);
 			mlx_destroy_image(mlx->instance, mlx->img);
 		}
 		p = p->next;
 	}
 }
 
-void ft_put_imgind(int line, int col, t_mlx *mlx)
+void	ft_put_imgind(int line, int col, t_mlx *mlx)
 {
-	mlx->img = mlx_xpm_file_to_image(mlx->instance, "img/floor.xpm", &mlx->x, &mlx->y);
-	mlx_put_image_to_window(mlx->instance, mlx->win, mlx->img, mlx->p_col * 32, mlx->p_line * 32);
-	mlx_destroy_image(mlx->instance, mlx->img);
+	void	*s;
+	int		c;
+	int		l;
 
+	c = mlx->p_col * 32;
+	l = mlx->p_line * 32;
+	s = mlx->instance;
+	mlx->img = mlx_xpm_file_to_image(s, "img/floor.xpm", &mlx->x, &mlx->y);
+	mlx_put_image_to_window(s, mlx->win, mlx->img, c, l);
+	mlx_destroy_image(mlx->instance, mlx->img);
 	mlx->p_col = col;
 	mlx->p_line = line;
-	mlx->img = mlx_xpm_file_to_image(mlx->instance, mlx->path, &mlx->x, &mlx->y);
-	mlx_put_image_to_window(mlx->instance, mlx->win, mlx->img, mlx->p_col * 32, mlx->p_line * 32);
+	c = mlx->p_col * 32;
+	l = mlx->p_line * 32;
+	mlx->img = mlx_xpm_file_to_image(s, mlx->path, &mlx->x, &mlx->y);
+	mlx_put_image_to_window(mlx->instance, mlx->win, mlx->img, c, l);
 	mlx_destroy_image(mlx->instance, mlx->img);
 }
